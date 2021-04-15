@@ -10,7 +10,7 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
 with open("requirements.txt") as f:
     required = f.read().splitlines()
 
-setup_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ]
+setup_requirements = ['setuptools_scm',{%- if cookiecutter.use_pytest == 'y' %}'pytest-runner',{%- endif %} ]
 
 test_requirements = [{%- if cookiecutter.use_pytest == 'y' %}'pytest>=3',{%- endif %} ]
 

@@ -12,3 +12,4 @@ pylint==3.0.0a1
 pytest==6.2.3
 tox==3.23.0
 Sphinx==3.5.1
+pip-licenses==2.2.0
