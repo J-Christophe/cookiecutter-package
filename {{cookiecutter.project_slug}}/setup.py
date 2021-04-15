@@ -22,8 +22,8 @@ with open(
     exec(f.read(), about)
 
 setuptools.setup(
+    use_scm_version=True,
     name=about["__name_soft__"],
-    version=about["__version__"],
     description=about["__description__"],
     long_description=readme,
     author=about["__author__"],
