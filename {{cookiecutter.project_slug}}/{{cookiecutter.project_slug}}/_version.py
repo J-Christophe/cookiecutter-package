@@ -31,9 +31,3 @@ __author__ = "{{cookiecutter.full_name}}"
 __author_email__ = "{{cookiecutter.email}}"
 __license__ = "{{cookiecutter.open_source_license}}"
 __copyright__ = "{{cookiecutter.year}}, {{cookiecutter.institute}} ({{cookiecutter.full_name}} for {{cookiecutter.consortium_name}})"
-
-# https://medium.com/38th-street-studios/creating-your-first-python-package-181c5e31f3f8
-# https://antonz.org/python-packaging/
-# https://python-packaging.readthedocs.io/en/latest/
-# https://github.com/audreyfeldroy/cookiecutter-pypackage/tree/master/%7B%7Bcookiecutter.project_slug%7D%7D
-# https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
