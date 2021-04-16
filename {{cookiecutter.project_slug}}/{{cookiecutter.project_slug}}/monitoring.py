@@ -103,7 +103,7 @@ class UtilsMonitoring:  # noqa: R0205
 
         @wraps(func)
         def newfunc(*args, **kwargs):
-            name = func.__class__.__name__
+            name = func.__qualname__
             logger = logging.getLogger(__name__ + "." + name)
             start_time = time.time()
             result = func(*args, **kwargs)
@@ -144,7 +144,7 @@ class UtilsMonitoring:  # noqa: R0205
 
         @wraps(func)
         def newfunc(*args, **kwargs):
-            name = func.__name__
+            name = func.__qualname__
             logger = logging.getLogger(__name__ + "." + name)
             filename = os.path.basename(args[1])
             logger.log(level, "Loading file '%s'", filename)
@@ -159,18 +159,13 @@ class UtilsMonitoring:  # noqa: R0205
                     nb_records = None
 
             if nb_records is not None:
-                logger.info(
-                    "File '%s' loaded with %s records",
-                    filename,
-                    str(nb_records),
+                msg = (
+                    f"File '{filename}' loaded with {str(nb_records)} records"
                 )
+                logger.info(msg)
             else:
-                logger.warning(
-                    "Unable to load the number of records in file '%s' - "
-                    "type: %s",
-                    args[1],
-                    type_result,
-                )
+                msg = f"Unable to load the number of records in file '{args[1]}' - type: {type_result}"
+                logger.warning(msg)
             return result
 
         return newfunc
@@ -191,7 +186,7 @@ class UtilsMonitoring:  # noqa: R0205
 
         @wraps(func)
         def newfunc(*args, **kwargs):
-            name = func.__class__.__name__
+            name = func.__qualname__
             logger = logging.getLogger(__name__ + "." + name)
             tracemalloc.start()
             result = func(*args, **kwargs)

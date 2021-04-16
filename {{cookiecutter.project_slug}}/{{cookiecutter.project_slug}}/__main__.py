@@ -17,5 +17,9 @@
 # along with {{cookiecutter.project_name}}.  If not, see <https://www.gnu.org/licenses/>.
 """Main program."""
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 if __name__ == "__main__":
-    pass
+    logger.info("Main program")
