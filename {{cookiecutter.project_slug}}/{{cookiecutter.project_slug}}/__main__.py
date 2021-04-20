@@ -16,10 +16,11 @@
 # You should have received a copy of the {% if cookiecutter.open_source_license == 'GNU General Public License v3' -%}GNU General Public License{% elif cookiecutter.open_source_license == 'GNU Lesser General Public License v3' -%}GNU Lesser General Public License v3 {% elif cookiecutter.open_source_license == 'GNU Affero General Public License v3' -%}GNU Affero General Public License v3{% endif %}
 # along with {{cookiecutter.project_name}}.  If not, see <https://www.gnu.org/licenses/>.
 """Main program."""
-
 import logging
+from {{cookiecutter.project_slug}} import __name_soft__
 
-logger = logging.getLogger(__name__)
-
-if __name__ == "__main__":
-    logger.info("Main program")
+def run():
+    logger = logging.getLogger(__name__)
+    logger.info(f"Main program of {__name_soft__}")
+    logger.debug("toot")
+    print("OK")

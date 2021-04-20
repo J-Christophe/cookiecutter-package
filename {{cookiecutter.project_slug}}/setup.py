@@ -48,7 +48,7 @@ setuptools.setup(
             about["__name_soft__"]
             + "="
             + about["__name_soft__"]
-            + ".__main__:main",
+            + ".__main__:run",
         ],
     },  # Optional
 )
