@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := init
-.PHONY: prepare-dev install-dev data help lint test coverage upload-prod-pypi upload-test-pypi doc doc-pdf visu-doc-pdf visu-doc tox licences
+.PHONY: prepare-dev install-dev data help lint tests coverage upload-prod-pypi upload-test-pypi doc doc-pdf visu-doc-pdf visu-doc tox licences
 VENV = ".{{cookiecutter.project_slug}}"
 
 define PROJECT_HELP_MSG
@@ -11,14 +11,14 @@ Usage:\n
 	-------------------------------------------------------------------------\n
 	\t\tInstallation\n
 	-------------------------------------------------------------------------\n
-	make\t\t\t\t                Install lisacattools in the system (root)\n
-	make user\t\t\t 			Install lisacattools for non-root usage\n
+	make\t\t\t\t                Install {{ cookiecutter.project_slug }} in the system (root)\n
+	make user\t\t\t 			Install {{ cookiecutter.project_slug }} for non-root usage\n
 	\n
 	-------------------------------------------------------------------------\n
 	\t\tDevelopment\n
 	-------------------------------------------------------------------------\n
 	make prepare-dev\t\t 		Prepare Development environment\n
-	make install-dev\t\t 		Install COTS\n
+	make install-dev\t\t 		Install COTS and {{ cookiecutter.project_slug }} for development purpose\n
 	make data\t\t\t				Download data\n
 	make test\t\t\t             Run units and integration tests\n
 	\n
@@ -71,7 +71,7 @@ prepare-dev:
 	cp .pypirc ~${USER} && git init && echo "python3 -m venv {{cookiecutter.project_slug}}-env && export PYTHONPATH=. && export PATH=`pwd`/{{cookiecutter.project_slug}}-env/bin:${PATH}" > ${VENV} && echo "source \"`pwd`/{{cookiecutter.project_slug}}-env/bin/activate\"" >> ${VENV} && scripts/install-hooks.bash && echo "\nnow source this file: \033[31msource ${VENV}\033[0m"
 
 install-dev:
-	pip install -r requirements.txt && pip install -r requirements_dev.txt && pre-commit install && pre-commit autoupdate
+	pip install -r requirements.txt && pip install -r requirements_dev.txt && pre-commit install && pre-commit autoupdate && python3 setup.py develop
 
 coverage:  ## Run tests with coverage
 	coverage erase
@@ -83,7 +83,7 @@ lint:  ## Lint and static-check
 	pylint {{cookiecutter.project_slug}}
 	mypy {{cookiecutter.project_slug}}
 
-test:  ## Run tests
+tests:  ## Run tests
 	pytest -ra
 
 tox:

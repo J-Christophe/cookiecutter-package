@@ -11,7 +11,9 @@
     "jinja2_time.TimeExtension"
   ],
   "consortium_name": [
-    "Plato consortium"
+    "Centre National d'Etudes Spatiales",
+    "Plato consortium",
+    "LISA consortium"
   ],
   "pypi_username": "{{ cookiecutter.github_username }}",
   "version": "0.1.0",
