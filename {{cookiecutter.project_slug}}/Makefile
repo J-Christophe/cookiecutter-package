@@ -108,7 +108,7 @@ version:
 	python3 setup.py --version
 
 data:
-	pip install -r requirements-data.txt && python scripts/data_download.py
+	pip install -r requirements_data.txt && python scripts/data_download.py
 
 upload-test-pypi:
 	flit publish --repository pypitest
