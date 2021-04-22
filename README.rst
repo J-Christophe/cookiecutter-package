@@ -33,6 +33,8 @@ To create a skeleton of a python project:
 * setting up of legal aspects (header, LICENSE)
 * implementation of tasks by a Makefile
 
+    pip install cookiecutter
+    
     cookiecutter https://github.com/J-Christophe/cookiecutter-package
 
 
