@@ -24,7 +24,14 @@ Create a functional skeleton of a python package
 Usage
 -----
 
-To use My Great Project in a project::
+To create a skeleton of a python project:
+
+* initialization of the README
+* initialization of the loggers
+* initialization of tests
+* quality control of the code (black, flake8, ...)
+* setting up of legal aspects (header, LICENSE)
+* implementation of tasks by a Makefile
 
     cookiecutter https://github.com/J-Christophe/cookiecutter-package
 
